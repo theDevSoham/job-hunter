@@ -1,4 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import defaultCoverText from "../assets/defaultCoverLetter.txt?raw";
+import defaultEmailText from "../assets/defaultEmailTemplate.txt?raw";
+import defaultLinkedinText from "../assets/defultLinkedInDM.txt?raw";
+import FormBody from "./FormBody";
 
 const selectedTab = `bg-blue-700 text-white`;
 const defaultTab = `bg-gray-300 text-black`;
@@ -25,6 +29,47 @@ const FormBuilder = () => {
   const [current, setCurrent] = useState<
     "cover" | "linkedindm" | "email_template"
   >("cover");
+
+  const renderForm = (): React.ReactNode => {
+    let result: React.ReactNode = <></>;
+    switch (current) {
+      case "cover":
+        result = (
+          <FormBody
+            type="cover"
+            heading="Cover Letter"
+            textData={defaultCoverText}
+          />
+        );
+        break;
+
+      case "email_template":
+        result = (
+          <FormBody
+            type="email_template"
+            heading="Cold Email Template"
+            textData={defaultEmailText}
+          />
+        );
+        break;
+
+      case "linkedindm":
+        result = (
+          <FormBody
+            type="linkedindm"
+            heading="Linkedin DM Message"
+            textData={defaultLinkedinText}
+          />
+        );
+        break;
+
+      default:
+        break;
+    }
+
+    return result;
+  };
+
   return (
     <div className="w-full max-w-4x h-full p-6" id="form-builder-index">
       <div className="md:flex h-full">
@@ -45,16 +90,7 @@ const FormBuilder = () => {
           ))}
         </ul>
         <div className="p-6 bg-gray-50 text-medium text-gray-500 bg-gray-300 rounded-lg w-full h-full">
-          <h3 className="text-lg font-bold text-gray-900 mb-2">Profile Tab</h3>
-          <p className="mb-2">
-            This is some placeholder content the Profile tab's associated
-            content, clicking another tab will toggle the visibility of this one
-            for the next.
-          </p>
-          <p>
-            The tab JavaScript swaps classNamees to control the content
-            visibility and styling.
-          </p>
+          {renderForm()}
         </div>
       </div>
     </div>
