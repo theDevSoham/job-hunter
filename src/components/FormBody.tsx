@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { formatData, pairElements, transformString } from "../utils";
+import {
+  constructOutput,
+  formatData,
+  pairElements,
+  transformString,
+} from "../utils";
 import withFormToggle from "./withFormToggle";
 
 interface IFormBody {
@@ -16,6 +21,7 @@ const FormBody: React.FC<IFormBody> = ({
 }) => {
   const [formKeys, setFormKeys] = useState<string[][]>();
   const [showOutput, setShowOutput] = useState<boolean>(false);
+  const [output, setOutput] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,7 +31,7 @@ const FormBody: React.FC<IFormBody> = ({
 
     setShowOutput(true);
 
-    console.log(formObject);
+    setOutput(constructOutput(formObject, textData));
   };
 
   useEffect(() => {
@@ -41,15 +47,19 @@ const FormBody: React.FC<IFormBody> = ({
     <div>
       <h3 className="text-lg font-bold text-gray-900 mb-2">{heading}</h3>
       {showOutput ? (
-        <></>
+        <div className="overflow-auto">
+          <p>{output}</p>
+        </div>
       ) : (
         <form className="overflow-auto" onSubmit={handleSubmit}>
-          <input type="hidden" value={type} />
-          {formKeys?.map((rows) => {
+          {formKeys?.map((rows, ind) => {
             return (
-              <div className="grid md:grid-cols-2 md:gap-6">
-                {rows.map((key) => (
-                  <div className="relative z-0 w-full mb-5 group" key={key}>
+              <div className="grid md:grid-cols-2 md:gap-6" key={ind}>
+                {rows.map((key, index) => (
+                  <div
+                    className="relative z-0 w-full mb-5 group"
+                    key={`${key}_${index}`}
+                  >
                     <input
                       type="text"
                       name={key}

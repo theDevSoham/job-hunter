@@ -33,3 +33,19 @@ export function transformString(input: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }
+
+export function constructOutput(
+  formObject: { [k: string]: FormDataEntryValue },
+  template: string
+): string {
+  let output = template;
+
+  Object.entries(formObject).forEach(([key, value]) => {
+    // Create a regex that matches the key enclosed in double curly braces,
+    // allowing for optional spaces: e.g. {{ candidate_name }}
+    const regex = new RegExp(`{{\\s*${key}\\s*}}`, "g");
+    output = output.replace(regex, String(value));
+  });
+
+  return output;
+}
