@@ -11,7 +11,6 @@ interface IFormBody {
   type: "cover" | "linkedindm" | "email_template";
   heading: string;
   textData: string;
-  onSubmit: (replacedText: string) => void;
 }
 
 const FormBody: React.FC<IFormBody> = ({
@@ -43,12 +42,21 @@ const FormBody: React.FC<IFormBody> = ({
     console.log(formKeys);
   }, [formKeys]);
 
+  useEffect(() => {
+    setShowOutput(false);
+    setOutput("");
+  }, [type]);
+
   return (
     <div>
       <h3 className="text-lg font-bold text-gray-900 mb-2">{heading}</h3>
       {showOutput ? (
         <div className="overflow-auto">
-          <p>{output}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: output.replace(/\\n/g, "<br />").replace(/"/g, ""),
+            }}
+          />
         </div>
       ) : (
         <form className="overflow-auto" onSubmit={handleSubmit}>
@@ -91,4 +99,5 @@ const FormBody: React.FC<IFormBody> = ({
   );
 };
 
-export default withFormToggle(FormBody);
+// export default withFormToggle(FormBody);
+export default FormBody;

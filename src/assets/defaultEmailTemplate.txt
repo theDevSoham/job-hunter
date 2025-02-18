@@ -1,8 +1,1 @@
-Subject: Application for {{position}}
-
-Dear Hiring Manager,
- I hope this message finds you well. I am writing to express my interest in the {{position}} position that I discovered through {{discovered_through}}. With {{experience_time}} of experience in {{experience_in_tech_stack}}, I am confident in my ability to contribute effectively to your team and believe my skills in {{skills(comma_separated)}} align well with the requirements of the role. I have attached my resume for your review. I would welcome the opportunity to discuss how my background, skills, and passion for {{role_applying_for}} make me a strong candidate for this position. I totally understand that you’re busy, and it is okay even if you don’t respond to this message. However I will do a follow-up in the next three days, to make sure that you have read my message.
-
-Thanking you in advance for your time and consideration
-{{candidate_name}}
-Linkedin: {{linkedin_profile_link}}
+Subject: Application for {{position}}\n\nDear Hiring Manager,\n I hope this message finds you well. I am writing to express my interest in the {{position}} position that I discovered through {{discovered_through}}. With {{experience_time}} of experience in {{experience_in_tech_stack}}, I am confident in my ability to contribute effectively to your team and believe my skills in {{skills(comma_separated)}} align well with the requirements of the role. I have attached my resume for your review. I would welcome the opportunity to discuss how my background, skills, and passion for {{role_applying_for}} make me a strong candidate for this position. I totally understand that you’re busy, and it is okay even if you don’t respond to this message. However I will do a follow-up in the next three days, to make sure that you have read my message.\n\nThanking you in advance for your time and consideration\n{{candidate_name}}\nLinkedin: {{linkedin_profile_link}}

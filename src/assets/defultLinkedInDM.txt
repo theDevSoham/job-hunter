@@ -1,12 +1,1 @@
-Hi {{connection_name}},
-
-I hope you're doing well. I came across your profile and noticed your work at {{target_company_name}}. I’m a {{previous_role}} with experience in {{skills_experienced_in(comma_separated)}} and more—having recently contributed to {{noable_recent_contribution_in_last_company}}.
-
-I’m very interested in exploring {{target_opportunity}} opportunity at {{target_company_name}} and would appreciate it if you could refer me for the role. My resume (attached/available on my profile) provides further details on my background and projects.
-
-Thank you for your time and consideration!
-
-P.S: The job post link {{job_post_link}}
-
-Best regards, 
-{{name}}
+Hi {{connection_name}},\n\nI hope you're doing well. I came across your profile and noticed your work at {{target_company_name}}. I’m a {{previous_role}} with experience in {{skills_experienced_in}} and more—having recently contributed to {{noable_recent_contribution_in_last_company}}.\n\nI’m very interested in exploring {{target_opportunity}} opportunity at {{target_company_name}} and would appreciate it if you could refer me for the role. My resume (attached/available on my profile) provides further details on my background and projects.\n\nThank you for your time and consideration!\n\nP.S: The job post link {{job_post_link}}\n\nBest regards, \n{{name}}
