@@ -5,7 +5,7 @@ import {
   pairElements,
   transformString,
 } from "../utils";
-import withFormToggle from "./withFormToggle";
+// import withFormToggle from "./withFormToggle";
 
 interface IFormBody {
   type: "cover" | "linkedindm" | "email_template";
